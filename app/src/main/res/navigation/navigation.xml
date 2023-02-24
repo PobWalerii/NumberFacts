@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/queryFragment">
+
+    <fragment
+        android:id="@+id/queryFragment"
+        android:name="com.example.numberfacts.ui.queryfragment.QueryFragment"
+        android:label="fragment_query"
+        tools:layout="@layout/fragment_query" >
+        <action
+            android:id="@+id/action_queryFragment_to_responseFragment"
+            app:destination="@id/responseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/responseFragment"
+        android:name="com.example.numberfacts.ui.responsefragment.ResponseFragment"
+        android:label="fragment_response"
+        tools:layout="@layout/fragment_response" >
+        <argument
+            android:name="number"
+            app:argType="integer" />
+        <argument
+            android:name="numberId"
+            app:argType="long" />
+    </fragment>
+</navigation>

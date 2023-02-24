@@ -1,0 +1,29 @@
+package com.example.numberfacts.ui.queryfragment
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.example.numberfacts.R
+import com.example.numberfacts.databinding.FragmentQueryBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class QueryFragment : Fragment() {
+    private var _binding: FragmentQueryBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        _binding = FragmentQueryBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+}
