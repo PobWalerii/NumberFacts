@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class Numbers (
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val number: Int
+    val number: Int,
+    val fact: String
 )

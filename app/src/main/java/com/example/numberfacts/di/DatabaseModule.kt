@@ -3,9 +3,10 @@ package com.example.numberfacts.di
 import android.content.Context
 import androidx.room.Room
 import com.example.numberfacts.constants.KeyConstants
+import com.example.numberfacts.data.api.ApiService
 import com.example.numberfacts.data.database.AppDatabase
-import com.example.numberfacts.data.database.dao.FactsDao
 import com.example.numberfacts.data.database.dao.NumbersDao
+import com.example.numberfacts.data.repository.NumbersRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,22 +32,12 @@ object DatabaseModule {
     fun provideNumbersDao(database: AppDatabase): NumbersDao {
         return database.numbersDao()
     }
-    //@Provides
-    //fun provideClientsRepository(
-    //        clientsDao: ClientsDao
-    //    ): ClientsRepository {
-    //        return ClientsRepository(clientsDao)
-    //    }
-
     @Provides
-    fun provideFactsDao(database: AppDatabase): FactsDao {
-        return database.factsDao()
+    fun provideNumbersRepository(
+        apiService: ApiService,
+        numbersDao: NumbersDao
+    ): NumbersRepository {
+        return NumbersRepository(apiService, numbersDao)
     }
-    //@Provides
-    //fun provideProductsRepository(
-    //    productsDao: ProductsDao
-    //): ProductsRepository {
-    //    return ProductsRepository(productsDao)
-    //}
 
 }
