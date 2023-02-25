@@ -20,7 +20,7 @@ class QueryViewModel @Inject constructor(
     private var _state: MutableLiveData<NumbersUiState> = MutableLiveData()
     val state: LiveData<NumbersUiState> = _state
 
-    fun getNumbersFacts(key: Int) {
+    fun getNumbersFacts(key: Int?) {
         viewModelScope.launch {
             repository
                 .getNumbersFacts(key)

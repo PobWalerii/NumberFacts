@@ -47,7 +47,7 @@ class QueryFragment : Fragment() {
             }
         }
         binding.buttonRandom.setOnClickListener {
-            viewModel.getNumbersFacts(0)
+            viewModel.getNumbersFacts(null)
         }
     }
 
