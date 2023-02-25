@@ -8,5 +8,6 @@ data class Numbers (
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val number: Int,
+    val time: Long,
     val fact: String
 )
