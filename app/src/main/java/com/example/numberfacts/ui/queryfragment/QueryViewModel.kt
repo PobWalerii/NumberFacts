@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.numberfacts.data.database.entitys.Numbers
 import com.example.numberfacts.data.repository.NumbersRepository
-import com.example.numberfacts.utils.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,6 +18,8 @@ class QueryViewModel @Inject constructor(
 
     private var _state: MutableLiveData<NumbersUiState> = MutableLiveData()
     val state: LiveData<NumbersUiState> = _state
+
+    var currentId = 0L
 
     fun getNumbersFacts(key: Int?) {
         viewModelScope.launch {
@@ -43,7 +44,5 @@ class QueryViewModel @Inject constructor(
     }
 
     fun getNumbersList(): Flow<List<Numbers>> = repository.getNumbersList()
-
-
 
 }

@@ -2,7 +2,7 @@ package com.example.numberfacts.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.numberfacts.constants.KeyConstants
+import com.example.numberfacts.utils.KeyConstants
 import com.example.numberfacts.data.api.ApiService
 import com.example.numberfacts.data.database.AppDatabase
 import com.example.numberfacts.data.database.dao.NumbersDao

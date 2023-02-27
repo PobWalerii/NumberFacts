@@ -7,6 +7,8 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.findNavController
+import androidx.navigation.ui.navigateUp
 import com.example.numberfacts.R
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,5 +33,9 @@ class MainActivity : AppCompatActivity() {
             slideUp.doOnEnd { splashScreenViewProvider.remove() }
             slideUp.start()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.fragmentContainerView).navigateUp() || super.onSupportNavigateUp()
     }
 }

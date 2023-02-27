@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="item"
+            type="com.example.numberfacts.data.database.entitys.Numbers" />
+        <variable
+            name="currentId"
+            type="Long" />
+        <variable
+            name="contentType"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@{item.id==currentId ? @color/gray : @color/white}"
+        tools:ignore="UselessLeaf">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:setNumberValue="@{item.number}"
+            android:textSize="@dimen/text_size_item"
+            android:layout_marginTop="@dimen/universal_margin"
+            android:layout_marginStart="@dimen/universal_margin"
+            android:visibility="@{contentType ? View.VISIBLE : View.GONE}"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/universal_margin"
+            android:src="@drawable/marker"
+            android:visibility="@{!contentType ? View.VISIBLE : View.GONE}"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/universal_margin"
+            android:textSize="@dimen/text_size_item"
+            app:setSingleLineText="@{contentType}"
+            android:text="@{item.fact}" />
+
+    </LinearLayout>
+
+</layout>

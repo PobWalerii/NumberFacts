@@ -1,4 +1,4 @@
-package com.example.numberfacts.constants
+package com.example.numberfacts.utils
 
 object KeyConstants {
     const val DATABASE_NAME = "data-numbers"

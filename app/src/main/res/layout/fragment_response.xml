@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.responsefragment.ResponseFragment"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.responsefragment.ResponseFragment">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="visibleInfoText"
+            type="Boolean" />
+        <variable
+            name="number"
+            type="Integer" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessLeaf">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_number"
+            app:setNumberValue="@{number}"
+            android:textSize="@dimen/big_number_size"
+            android:layout_margin="@dimen/universal_margin"
+            android:padding="@dimen/universal_margin"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/universal_margin"
+            android:paddingBottom="@dimen/universal_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <TextView
+            android:id="@+id/textEmpty"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/empty_number_list"
+            android:textSize="@dimen/number_query_size"
+            app:visibility="@{visibleInfoText ? View.VISIBLE : View.GONE}"/>
+
+    </LinearLayout>
+</layout>

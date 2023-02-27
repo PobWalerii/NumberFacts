@@ -1,4 +1,4 @@
-package com.example.numberfacts.utils
+package com.example.numberfacts.ui.queryfragment
 
 sealed class ResponseState<T> (val data: T? = null, val message: String? = null){
     class Success<T>(data: T?) : ResponseState<T>(data)

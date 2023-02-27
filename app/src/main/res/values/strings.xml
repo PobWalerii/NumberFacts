@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">NumberFacts</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="get_fact">Отримати факт</string>
     <string name="get_random">Отримати факт про випадкове число</string>
-    <string name="invitation">Введіть ціле число, що Вас цікавить, і отримайте інформацію про нього</string>
+    <string name="invitation">Введіть ціле число, що Вас цікавить, та отримайте інформацію про нього</string>
     <string name="empty_list">Відсутня історія запитів</string>
     <string name="response_is_empty">Порожня відповідь</string>
+    <string name="empty_query">Введіть число та повторіть запит</string>
+    <string name="empty_number_list">Відсутні факти про поточне число</string>
 </resources>

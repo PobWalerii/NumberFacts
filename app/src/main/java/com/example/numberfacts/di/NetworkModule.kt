@@ -1,6 +1,6 @@
 package com.example.numberfacts.di
 
-import com.example.numberfacts.constants.KeyConstants
+import com.example.numberfacts.utils.KeyConstants
 import com.example.numberfacts.data.api.ApiService
 import dagger.Module
 import dagger.Provides

@@ -23,7 +23,7 @@
             android:name="number"
             app:argType="integer" />
         <argument
-            android:name="numberId"
+            android:name="currentId"
             app:argType="long" />
     </fragment>
 </navigation>

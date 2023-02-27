@@ -1,4 +1,4 @@
-package com.example.numberfacts.utils
+package com.example.numberfacts.ui.queryfragment
 
 sealed class NumbersUiState
     data class FactsLoaded(val data: String) : NumbersUiState()
