@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -12,16 +11,11 @@ import androidx.lifecycle.coroutineScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.example.numberfacts.R
-import com.example.numberfacts.databinding.FragmentQueryBinding
 import com.example.numberfacts.databinding.FragmentResponseBinding
 import com.example.numberfacts.ui.adapter.NumbersFactsAdapter
 import com.example.numberfacts.ui.main.MainActivity
-import com.example.numberfacts.ui.queryfragment.QueryViewModel
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 @AndroidEntryPoint
 class ResponseFragment : Fragment() {

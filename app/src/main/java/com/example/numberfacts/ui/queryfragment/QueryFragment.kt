@@ -2,6 +2,7 @@ package com.example.numberfacts.ui.queryfragment
 
 import android.app.Activity
 import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,6 +29,7 @@ class QueryFragment : Fragment() {
     private val viewModel by viewModels<QueryViewModel>()
     private lateinit var adapter: NumbersFactsAdapter
     private lateinit var recyclerView: RecyclerView
+    private lateinit var connectivityManager: ConnectivityManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,14 +52,15 @@ class QueryFragment : Fragment() {
         setupButtonClickListener()
         observeUIState()
         setupItemClickListener()
+        setConnectivityManager()
     }
 
     private fun loadData() {
         lifecycle.coroutineScope.launch {
             viewModel.getNumbersList().collect {
                 binding.visibleInfoText = it.isEmpty()
-                adapter.setList(it,viewModel.currentId)
-                if(viewModel.currentId == 0L) {
+                adapter.setList(it, viewModel.currentId)
+                if (viewModel.currentId == 0L) {
                     recyclerView.layoutManager?.scrollToPosition(0)
                 } else {
                     viewModel.currentId = 0L
@@ -93,8 +96,6 @@ class QueryFragment : Fragment() {
                 Toast.makeText(context, R.string.empty_query, Toast.LENGTH_LONG).show()
             } else {
                 hideKeyboardFromView(requireContext(),binding.queryNumber)
-                val key = queryKey.toInt()
-                //Toast.makeText(context,"$key",Toast.LENGTH_LONG).show()
                 viewModel.getNumbersFacts(queryKey.toInt())
             }
         }
@@ -112,19 +113,30 @@ class QueryFragment : Fragment() {
         when (state) {
             is LoadError -> {
                 Toast.makeText(
-                    requireContext(), state.message, Toast.LENGTH_SHORT
+                    requireContext(),
+                    if (connectivityManager.activeNetwork == null) {
+                        getString(R.string.no_internet_connection)
+                    } else {
+                        state.message
+                    },
+                    Toast.LENGTH_SHORT
                 ).show()
             }
             is FactsLoaded -> {
                 state.data.apply {
-                    Toast.makeText(context,
-                        this.ifEmpty { getString(R.string.response_is_empty) }, Toast.LENGTH_LONG).show()
+                    if(this.isEmpty()) {
+                        Toast.makeText(context, getString(R.string.response_is_empty), Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
             is FactsLoading -> {
                 binding.visibleProgress = state.isLoading
             }
         }
+    }
+
+    private fun setConnectivityManager() {
+        connectivityManager = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     }
 
     private fun setHomeKey() {
@@ -136,7 +148,5 @@ class QueryFragment : Fragment() {
             context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         manager.hideSoftInputFromWindow(view.windowToken, 0)
     }
-
-
 
 }

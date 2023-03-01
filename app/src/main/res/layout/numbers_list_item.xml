@@ -24,7 +24,6 @@
         android:background="@{item.id==currentId ? @color/gray : @color/white}"
         tools:ignore="UselessLeaf">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/universal_margin"
-            android:src="@drawable/marker"
+            app:setMarker="@{!contentType}"
             android:visibility="@{!contentType ? View.VISIBLE : View.GONE}"
             tools:ignore="ContentDescription" />
 

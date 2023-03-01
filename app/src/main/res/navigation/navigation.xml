@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_query" >
         <action
             android:id="@+id/action_queryFragment_to_responseFragment"
-            app:destination="@id/responseFragment" />
+            app:destination="@id/responseFragment"
+            app:enterAnim="@anim/slide_in_end"
+            app:exitAnim="@anim/slide_out_end"
+            app:popEnterAnim="@anim/slide_in_end"
+            app:popExitAnim="@anim/slide_out_end" />
     </fragment>
     <fragment
         android:id="@+id/responseFragment"

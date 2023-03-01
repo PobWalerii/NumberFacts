@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(indices = [Index(value = ["number","fact"], unique = true)])
+@Entity(indices = [Index(value = ["number", "fact"], unique = true)])
 data class Numbers (
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,

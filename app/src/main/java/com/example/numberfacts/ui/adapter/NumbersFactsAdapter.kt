@@ -32,6 +32,7 @@ class NumbersFactsAdapter(private val contentType: Boolean): RecyclerView.Adapte
             .inflate(R.layout.numbers_list_item, parent, false)
         val holder = ViewHolder(view)
         val binding = holder.getBinding()
+
         binding.container.setOnClickListener {
             val current = list[holder.adapterPosition]
             currentId = current.id

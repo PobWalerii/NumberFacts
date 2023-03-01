@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.queryfragment.QueryFragment">
+
     <data>
         <import type="android.view.View" />
         <variable
@@ -37,7 +38,7 @@
             android:layout_margin="@dimen/universal_margin"
             android:gravity="center_vertical"
             android:imeOptions="actionDone"
-            android:inputType="numberSigned|number"
+            android:inputType="number"
             android:textSize="@dimen/number_query_size"
             app:layout_constraintBottom_toBottomOf="@+id/buttonQuery"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,4 +112,5 @@
             app:visibility="@{visibleInfoText ? View.VISIBLE : View.GONE}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

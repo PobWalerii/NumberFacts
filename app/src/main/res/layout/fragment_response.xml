@@ -14,29 +14,36 @@
             type="Integer" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="UselessLeaf">
+        android:background="@color/white">
 
         <TextView
+            android:id="@+id/bigNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/back_number"
-            app:setNumberValue="@{number}"
-            android:textSize="@dimen/big_number_size"
             android:layout_margin="@dimen/universal_margin"
-            android:padding="@dimen/universal_margin"/>
+            android:background="@drawable/back_number"
+            android:padding="@dimen/universal_margin"
+            android:textSize="@dimen/big_number_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setNumberValue="@{number}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:clipToPadding="false"
             android:paddingTop="@dimen/universal_margin"
             android:paddingBottom="@dimen/universal_margin"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bigNumber"/>
 
         <TextView
             android:id="@+id/textEmpty"
@@ -45,7 +52,12 @@
             android:gravity="center"
             android:text="@string/empty_number_list"
             android:textSize="@dimen/number_query_size"
-            app:visibility="@{visibleInfoText ? View.VISIBLE : View.GONE}"/>
+            app:visibility="@{visibleInfoText ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
