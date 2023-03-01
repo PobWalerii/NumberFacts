@@ -8,7 +8,7 @@
     <string name="empty_query">Введіть число та повторіть запит</string>
     <string name="empty_number_list">Відсутні факти про поточне число</string>
     <string name="title_exit">Вихід із додатку</string>
-    <string name="text_exit">Ви впевнені, що хочете вийти з додатку?</string>
+    <string name="text_exit">Ви впевнені, що бажаєте вийти з додатку?</string>
     <string name="text_yes">Так</string>
     <string name="text_no">Ні</string>
     <string name="no_internet_connection">Відсутнє інтернет-з`єднання</string>
